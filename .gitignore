@@ -1,0 +1,53 @@
+## Ignorar archivos generados por el IDE/Editor
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+*.userosscache
+
+## Ignorar resultados de compilación
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+*.exe
+*.dll
+*.pdb
+*.cache
+
+## Ignorar paquetes NuGet
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nupkg
+.nuget/
+
+## Ignorar archivos de usuario
+*.swp
+*.swo
+*~
+~$*
+
+## Ignorar archivos de configuración local
+appsettings.Development.json
+appsettings.Local.json
+secrets.json
+
+## Ignorar archivos de publicación
+publish/
+*.pubxml
+
+## Ignorar archivos de migración de EF Core (opcional)
+**/Migrations/*.Designer.cs
+**/Migrations/*.resx
+
+
+## Ignorar archivos de pruebas
+TestResults/
+*.trx
+
+## Ignorar archivos de cobertura de código
+*.coverage
+*.coveragexml
+
