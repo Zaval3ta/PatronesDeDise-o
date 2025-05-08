@@ -1,5 +1,6 @@
 using DesignPatternsAsp.Configuration;
 using Microsoft.Extensions.Configuration;
+using Tools.Earn;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,18 @@ builder.Services.AddControllersWithViews();
 
 //Inyeccion de Myconfig
 builder.Services.Configure<MyConfig>(builder.Configuration.GetSection("Myconfig"));
+//Inyeccion de Factory
+builder.Services.AddScoped((factory) =>
+{
+    return new LocalEarnFactory(
+        builder.Configuration.GetSection("MyConfig").GetValue<decimal>("LocalPercentage"));
+});
+builder.Services.AddScoped((factory) =>
+{
+    return new ForeignEarnFactory(
+        builder.Configuration.GetSection("MyConfig").GetValue<decimal>("ForeignPercentage"),
+        builder.Configuration.GetSection("MyConfig").GetValue<decimal>("Extra"));
+});
 
 var app = builder.Build();
 
